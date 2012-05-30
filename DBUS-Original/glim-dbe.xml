@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<node name="/edu/grinnell/glimmer/counter"
+  xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd"
+>
+
+  <interface name="edu.grinnell.glimmer.dbe">
+
+    <method name="get_ints">
+      <arg type="ai" name="values" direction="out">
+      </arg>
+    </method>
+
+    <method name="get_strings">
+      <arg type="as" name="values" direction="out">
+      </arg>
+    </method>
+
+  </interface>
+</node>

@@ -1,0 +1,259 @@
+C
+
+context_get_bgcolor()
+    MediaPython GIMP Procedure: Gets current background color in RGB tuple.
+context_get_fgcolor()
+    MediaPython GIMP Procedure: Gets current foreground color in RGB tuple.
+context_list_brushes(filter)
+    MediaPython GIMP Procedure: Lists all the brushes in GIMP. Filter is 
+    optional.
+context_list_fonts(filter)
+    MediaPython GIMP Procedure: Lists all the fonts in GIMP. Filter is 
+    optional.
+context_set_bgcolor(color)
+    MediaPython GIMP Procedure: Sets the background to given RGB tuple.
+context_set_brush(brush)
+    MediaPython GIMP Procedure: Sets the current brush to brush. If given 
+    brush is invalid, current brush will not change.
+context_set_fgcolor(color)
+    MediaPython GIMP Procedure: Sets the foreground to given RGB tuple.
+context_update_displays()
+    MediaPython GIMP Procedure: Update all of the displays to show changes 
+    to images.
+context_get_brush()
+    MediaPython GIMP Procedure: Gets the current brush.
+
+
+H
+
+hsv_to_rgb (hsv)
+    MediaPython Color Procedure. Calculates the rgb value of the given
+    color in hsv format.
+
+I
+
+image_blot(image, x, y)
+    MediaPython GIMP Procedure. Blots a point with current brush and 
+    foreground color at (x, y).
+image_connect_the_dots_airbrush(image, pressure, x1, y1, x2, y1, x3....)
+    MediaPython GIMP Procedure. Draws a free-form line with the airbrush 
+    tool with pressure pressure in image from (x1, y1) to (x2, y2) to 
+    (x3, y3).... Uses the current brush and foreground color.
+image_connect_the_dots_dodgeburn(image, x1, y1, x2, y1, x3....)
+    MediaPython GIMP Procedure. Draws a free-form line with the dodgeburn 
+    tool in image from (x1, y1) to (x2, y2) to (x3, y3).... Uses the 
+    current foreground color.
+image_connect_the_dots_erase (image, x1, y1, x2, y2, x3...)
+    MediaPython GIMP Procedure. Draws a free-form line with the eraser 
+    tool in image from (x1, y1) to (x2, y2) to (x3, y3)...
+image_connect_the_dots_paint(image, x1, y1, x2, y1, x3...)
+    MediaPython GIMP Procedure. Draws a free-form line with the paint 
+    tool in image from (x1, y1) to (x2, y2) to (x3, y3).... Uses the 
+    current foreground color and brush.
+image_connect_the_dots_smudge(image, pressure, x1, y1, x2, y1, x3....)
+    MediaPython GIMP Procedure. Draws a free-form line with the smudge 
+    tool with pressure pressure in image from (x1, y1) to (x2, y2) to 
+    (x3, y3).... Uses the current foreground color.
+image_crop (image, new_width, new_height, offx, offy)
+    MediaPython GIMP Procedure. Crops image such that the top left corner 
+    of the cropped image is at (offx, offy) and has a width and height of 
+    new_width and new_height.
+image_display_new(image)
+    MediaPython GIMP Procedure. Displays image in new window.
+image_dodgeburn_line (image, x1, y1, x2, y2)
+    MediaPython GIMP Procedure. Draws a line with the dodgeburn tool in 
+    image from (x1, y1) to (x2, y2). Uses the current foreground color.
+image_draw_airbrush_line(image, pressure, x1, y1, x2, y2)
+    MediaPython GIMP Procedure. Draws a line with the airbrush tool with 
+    pressure pressure in image from (x1, y1) to (x2, y2). Uses the current 
+    brush and foreground color.
+image_erase_line(image, x1, y1, x2, y2)
+    MediaPython GIMP Procedure. Draws a line with the eraser tool in image 
+    from (x1, y1) to (x2, y2).
+image_fill_selection(image, color_source, opacity)
+    MediaPython GIMP Procedure. Fill the selected region of the given image 
+    according to color_source. If color_source is FOREGROUND, region will 
+    be filled with foreground color. If color_source is BACKGROUND, region 
+    will be filled with background color.
+image_flatten (image)
+    MediaPython GIMP Procedure. Flattens all layers such that image has only 
+    one layer.
+image_get_active_drawable(image)
+    MediaPython GIMP Procedure. Returns the drawable ID of the active 
+    drawable in image.
+image_height(image)
+    MediaPython GIMP Procedure. Returns the height of image.
+image_hflip (image)
+    MediaPython GIMP Procedure. Flips image horizontally.
+image_is_valid(image)
+    MediaPython GIMP Procedure. Checks if image is a valid image ID.
+image_hscale(image, new_width)
+    MediaPython GIMP Procedure. Scales the image horizontally such that 
+    the width is new_width.
+image_invert_colors(image)
+    MediaPython GIMP Procedure. Inverts the colors in image.
+image_new(width, height)
+    MediaPython GIMP Procedure. Create a new image of specified width and 
+    height.
+image_paint_line(image, x1, y1, x2, y2)
+    MediaPython GIMP Procedure. Draws a line with the paint tool in image 
+    from (x1, y1) to (x2, y2). Uses the current brush and foreground color.
+image_posterize(image, levels)
+    MediaPython GIMP Procedure. Reduces the number of different colors 
+    in the image according to levels.
+image_prop_scale (image, new_width)
+    MediaPython GIMP Procedure.  Scales image proportionally such that the 
+    ratio of width to height doesnt change.
+image_select_all(image)
+    MediaPython GIMP Procedure. Selects all in image.
+image_select_ellipse(image, top, left, width, height, operation)
+    MediaPython GIMP Procedure. Select an ellipse whose left margin is 
+    left, top margin is top, width is width and height is height. If 
+    operation is REPLACE, the ellipse replaces the current selection. 
+    If operation is ADD, the ellipse is added to the current selection. 
+    If operation is SUBTRACT, the ellipse is subtracted from the current 
+    selection. If operation is INTERSECT, the ellipse is intersected with 
+    the current selection (that is, only points that are in both the 
+    current selection and the ellipse remain selected).
+image_select_free(image, operation, x1, y1, x2, y2, …...)
+    MediaPython GIMP Procedure. Select a polygon described by the given 
+    list of positions (each created by position-new). If operation is 
+    REPLACE, the polygon replaces the current selection. If operation is 
+    ADD, the polygon is added to the current selection. If operation is 
+    SUBTRACT, the polygon is subtracted from the current selection. 
+    If operation is INTERSECT, the polygon is intersected with the current 
+    selection (that is, only points that are in both the current selection 
+    and the polygon remain selected).
+image_select_inverse(image)
+    MediaPython GIMP Procedure. Selects the inverse of all selected images 
+    in the image.
+image_select_nothing(image)
+    MediaPython GIMP Procedure. Clears the current selection. Afterwards, 
+    nothing is selected.
+image_select_rectangle(image, top, left, width, height, operation)
+    MediaPython GIMP Procedure. Select an rectangle whose left margin is 
+    left, top margin is top, width is width and height is height. If 
+    operation is REPLACE, the rectangle replaces the current selection. 
+    If operation is ADD, the rectangle is added to the current selection. 
+    If operation is SUBTRACT, the rectangle is subtracted from the current 
+    selection. If operation is INTERSECT, the rectangle is intersected with 
+    the current selection (that is, only points that are in both the current 
+    selection and the rectangle remain selected).
+image_smudge_line(image, pressure, x1, y1, x2, y1)
+    MediaPython GIMP Procedure. Draws a line with the smudge tool with 
+    pressure pressure in image from (x1, y1) to (x2, y2). Uses the current 
+    foreground color.
+image_vflip (image)
+    MediaPython GIMP Procedure. Flips image vertically.
+image_vscale(image, new_height)
+    MediaPython GIMP Procedure. Scales the image vertically such that the 
+    height is new_height.
+image_width(image)
+    MediaPython GIMP Procedure. Returns the width of image.
+
+R
+
+rgb_red(color)
+    MediaPython Color Procedure. Get the red component of an RGB color. 
+rgb_green(color)
+    MediaPython Color Procedure. Get the green component of an RGB color.  
+rgb_blue(color)
+    MediaPython Color Procedure. Get the blue component of an RGB color. 
+rgb_redder(color)
+    MediaPython Color Procedure. Build a redder version of the given
+    color. 
+rgb_greener(color)
+    MediaPython Color Procedure. Build a greener version of the given
+    color. 
+rgb_bluer(color)
+    MediaPython Color Procedure. Build a bluer version of the given color. 
+rgb_complement(color)
+    MediaPython Color Procedure. Compute the psuedo-complement of the
+    given color.
+rgb_lighter(color)
+    MediaPython Color Procedure. Build a lighter version of the given
+    color.
+rgb_darker(color)
+    MediaPython Color Procedure. Build a darker version of the given
+    color. 
+rgb_new(r, g, b)
+    MediaPython Color Procedure. Build an RGB color whose red, green, and
+    blue components are the specified values, each of which is an integer
+    between 0 and 255 (inclusive).
+rgb_phaseshift(color)
+    MediaPython Color Procedure. “Phase shift” the color by adding 128 to
+    components less than 128 and subtracting 128 from components greater
+    than 128. 
+rgb_rotate(color)
+    MediaPython Color Procedure. Rotate the three components of the given
+    color, setting the red component to the value of green, green to the
+    value of blue, and blue to the value of red. 
+rgb_stronger(color)
+    MediaPython Color Procedure. Makes the color "bolder". 
+rgb_get_hue(color)
+    MediaPython Color Procedure. Returns the hue of color.
+rgb_get_saturation(color)
+    MediaPython Color Procedure. Gets the saturation of color. 
+rgb_get_value(color)
+    MediaPython Color Procedure. Gets the value of color. 
+rgb_to_hsv (rgb)
+    MediaPython Color Procedure. Returns the color in HSV notation. 
+rgb_change_hue(color, hue)
+    MediaPython Color Procedure. Returns the color in RGB notation with hue
+    changed to hue.
+
+
+
+
+
+
+
+T
+
+turtle_clone(turtle)
+    MediaPython Turtle Constructor. Make a clone of turtle (same position, 
+    direction, color, brush, etc.).
+turtle_down(turtle)
+    MediaPython Turtle Procedure. Put turtle's brush down. When the turtle 
+    moves forward, it draws with the brush.
+turtle_face(turtle, angle)
+    MediaPython Turtle Procedure. Make turtle face the direction specified 
+    by angle (clockwise from right).
+turtle_forward(turtle, distance)
+    MediaPython Turtle Procedure. Moves turtle forward by the specified 
+    distance.
+turtle_get_brush(turtle)
+    MediaPython Turtle Procedure. Determine the brush type that turtle 
+    draws with.
+turtle_get_color(turtle)
+    MediaPython Turtle Procedure. Determine the color that turtle draws 
+    with.
+turtle_get_angle(turtle)
+    MediaPython Turtle Procedure. Determine the angle that turtle is 
+    facing.
+turtle_get_x(turtle)
+    MediaPython Turtle Procedure. Determine the x-coordinate of turtle’s 
+    position.
+turtle_get_y(turtle)
+    MediaPython Turtle Procedure. Determine the y-coordinate of turtle’s 
+    position.
+turtle_new(image)
+    MediaPython Turtle Constructor. Build a new turtle that draws on image.
+turtle_print_position(turtle)
+    MediaPython Turtle Procedure. Prints the position of turtle in (x, y) 
+    format.
+turtle_set_brush(turtle, brush)
+    MediaPython Turtle Procedure. Set the brush that turtle draws with.
+turtle_set_color(turtle, color)
+    MediaPython Turtle Procedure. Set the color in which turtle draws.
+turtle_teleport(turtle, x, y)
+    MediaPython Turtle Procedure. Move turtle to (x, y). Do not draw along 
+    the way.
+turtle_turn(turtle, angle)
+    MediaPython Turtle Procedure. Rotate turtle clockwise by angle degrees.
+turtle_up(turtle)
+    MediaPython Turtle Procedure. Lifts turtle's brush. When turtle moves 
+    forward, it will not draw.
+turtle_world(turtle)
+    MediaPython Turtle Procedure. Determine the world on which turtle resides. 
+

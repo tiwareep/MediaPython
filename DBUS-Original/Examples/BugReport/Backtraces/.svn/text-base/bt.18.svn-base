@@ -1,0 +1,22 @@
+#0  0x0012d422 in __kernel_vsyscall ()
+#1  0x00412651 in raise () from /lib/tls/i686/cmov/libc.so.6
+#2  0x00415a82 in abort () from /lib/tls/i686/cmov/libc.so.6
+#3  0x0044949d in ?? () from /lib/tls/i686/cmov/libc.so.6
+#4  0x004495c4 in __libc_fatal () from /lib/tls/i686/cmov/libc.so.6
+#5  0x0045a00a in ?? () from /lib/tls/i686/cmov/libc.so.6
+#6  0x004598a0 in ?? () from /lib/tls/i686/cmov/libc.so.6
+#7  0x00459ba9 in ?? () from /lib/tls/i686/cmov/libc.so.6
+#8  0x00457f36 in free () from /lib/tls/i686/cmov/libc.so.6
+#9  0x00302eaf in g_free (mem=0xb6e00468) at gmem.c:263
+#10 0x002f9a09 in g_source_unref_internal (source=0xb6e00468, 
+    context=0x806b5a8, have_lock=1) at gmain.c:1704
+#11 0x002fa7b9 in g_main_dispatch (context=0x806b5a8) at gmain.c:2470
+#12 0x002fb97b in g_main_context_dispatch (context=0x806b5a8) at gmain.c:3014
+#13 0x002fbdd5 in g_main_context_iterate (context=0x806b5a8, block=1, 
+    dispatch=1, self=0x806b688) at gmain.c:3092
+#14 0x002fc547 in g_main_loop_run (loop=0x806b658) at gmain.c:3300
+#15 0x002070b4 in gdbus_shared_thread_func (data=0x0) at gdbusprivate.c:276
+#16 0x00329207 in g_thread_create_proxy (data=0x806b688) at gthread.c:1955
+#17 0x003d496e in start_thread () from /lib/tls/i686/cmov/libpthread.so.0
+#18 0x004b5a4e in clone () from /lib/tls/i686/cmov/libc.so.6
+

@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<node name="/edu/grinnell/glimmer/gimpbus"
+      xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd"
+      >
+
+  <interface name="edu.grinnell.glimmer.gimpbus">
+
+    <method name="gimp_airbrush">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="pressure" direction="in">
+      </arg>
+      <arg type="ad" name="strokes" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_blot">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="x" direction="in">
+      </arg>
+      <arg type="d" name="y" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_brushes_get_list">
+      <arg type="s" name="filter" direction="in">
+      </arg>
+      <arg type="as" name="brush_list" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_context_get_background">
+      <arg type="d" name="red" direction="out">
+      </arg>
+      <arg type="d" name="green" direction="out">
+      </arg>
+      <arg type="d" name="blue" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_context_get_foreground">
+      <arg type="d" name="red" direction="out">
+      </arg>
+      <arg type="d" name="green" direction="out">
+      </arg>
+      <arg type="d" name="blue" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_context_set_background">
+      <arg type="d" name="red" direction="in">
+      </arg>
+      <arg type="d" name="green" direction="in">
+      </arg>
+      <arg type="d" name="blue" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_context_get_brush">
+      <arg type="s" name="brush" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_context_set_brush">
+      <arg type="s" name="name" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_context_get_brush">
+      <arg type="s" name="name" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_context_set_foreground">
+      <arg type="d" name="red" direction="in">
+      </arg>
+      <arg type="d" name="green" direction="in">
+      </arg>
+      <arg type="d" name="blue" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_display_new">
+      <arg type="i" name="image" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_displays_flush">
+    </method>
+
+    <method name="gimp_dodgeburn_default">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="ad" name="strokes" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_drawable_height">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="height" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_drawable_transform_rotate_default">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="angle" direction="in">
+      </arg>
+      <arg type="i" name="auto_center" direction="in">
+      </arg>
+      <arg type="i" name="center_x" direction="in">
+      </arg>
+      <arg type="i" name="center_y" direction="in">
+      </arg>
+      <arg type="i" name="interpolate" direction="in">
+      </arg>
+      <arg type="i" name="clip_result" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_drawable_transform_scale">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="x0" direction="in">
+      </arg>
+      <arg type="d" name="y0" direction="in">
+      </arg>
+      <arg type="d" name="x1" direction="in">
+      </arg>
+      <arg type="d" name="y1" direction="in">
+      </arg>
+      <arg type="i" name="transform_direction" direction="in">
+      </arg>
+      <arg type="i" name="interpolation" direction="in">
+      </arg>
+      <arg type="i" name="supersample" direction="in">
+      </arg>
+      <arg type="i" name="recursion_level" direction="in">
+      </arg>
+      <arg type="i" name="clip_result" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_drawable_type">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="type" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_drawable_width">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="width" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_edit_bucket_fill">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="fill_mode" direction="in">
+      </arg>
+      <arg type="i" name="paint_mode" direction="in">
+      </arg>
+      <arg type="d" name="opacity" direction="in">
+      </arg>
+      <arg type="d" name="threshold" direction="in">
+      </arg>      
+      <arg type="i" name="sample_merged" direction="in">
+      </arg>
+      <arg type="d" name="x" direction="in">
+      </arg>
+      <arg type="d" name="y" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_edit_named_copy">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="s" name="buffer_name" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_edit_named_paste">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="s" name="buffer_name" direction="in">
+      </arg>
+      <arg type="b" name="paste_into" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_edit_stroke">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_ellipse_select">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="d" name="left" direction="in">
+      </arg>
+      <arg type="d" name="top" direction="in">
+      </arg>
+      <arg type="d" name="width" direction="in">
+      </arg>
+      <arg type="d" name="height" direction="in">
+      </arg>      
+      <arg type="i" name="antialias" direction="in">
+      </arg>
+      <arg type="i" name="operation" direction="in">
+      </arg>
+      <arg type="i" name="feather" direction="in">
+      </arg>
+      <arg type="d" name="radius" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_eraser_default">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="ad" name="strokes" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_file_save">
+      <arg type="i" name="run_mode" direction="in">
+      </arg>
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="s" name="filename" direction="in">
+      </arg>
+      <arg type="s" name="raw_filename" direction="in">
+      </arg>
+    </method>
+
+   <method name="gimp_file_load">
+      <arg type="i" name="run_mode" direction="in">
+      </arg>
+      <arg type="s" name="filename" direction="in">
+      </arg>
+      <arg type="s" name="raw_filename" direction="in">
+      </arg>
+      <arg type="i" name="imagep" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_fonts_get_list">
+      <arg type="s" name="filter" direction="in">
+      </arg>
+      <arg type="as" name="font_list" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_free_select">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="ad" name="segments" direction="in">
+      </arg>
+      <arg type="i" name="operation" direction="in">
+      </arg>
+      <arg type="d" name="antialias" direction="in">
+      </arg>
+      <arg type="d" name="feather" direction="in">
+      </arg>
+      <arg type="d" name="feather_radius" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_image_add_layer">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="layer" direction="in">
+      </arg>
+      <arg type="i" name="position" direction="in">
+      </arg>
+    </method>
+
+
+    <method name="gimp_image_crop">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="new_width" direction="in">
+      </arg>
+      <arg type="i" name="new_height" direction="in">
+      </arg>
+      <arg type="i" name="offx" direction="in">
+      </arg>
+      <arg type="i" name="offy" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_image_flatten">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="layer" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_image_flip">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="flip_type" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_image_get_active_drawable">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="drawable" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_image_height">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="height" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_image_is_valid">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="valid" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_image_new">
+      <arg type="i" name="width" direction="in">
+      </arg>
+      <arg type="i" name="height" direction="in">
+      </arg>
+      <arg type="i" name="type" direction="in">
+      </arg>
+      <arg type="i" name="image" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_image_scale">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="new_width" direction="in">
+      </arg>
+      <arg type="i" name="new_height" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_image_width">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="width" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_invert">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_layer_new">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="s" name="name" direction="in">
+      </arg>
+      <arg type="i" name="width" direction="in">
+      </arg>
+      <arg type="i" name="height" direction="in">
+      </arg>
+      <arg type="i" name="type" direction="in">
+      </arg>
+      <arg type="d" name="opacity" direction="in">
+      </arg>
+      <arg type="i" name="mode" direction="in">
+      </arg>
+      <arg type="i" name="layer" direction="out">
+      </arg>
+    </method>
+
+
+    <method name="gimp_message">
+      <arg type="s" name="message" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_paintbrush">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="fade_out" direction="in">
+      </arg>
+      <arg type="ad" name="strokes" direction="in">
+      </arg>
+      <arg type="i" name="method" direction="in">
+      </arg>
+      <arg type="d" name="gradient_length" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_perspective">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="interpolation" direction="in">
+      </arg>
+      <arg type="d" name="x0" direction="in">
+      </arg>
+      <arg type="d" name="y0" direction="in">
+      </arg>
+      <arg type="d" name="x1" direction="in">
+      </arg>
+      <arg type="d" name="y1" direction="in">
+      </arg>
+      <arg type="d" name="x2" direction="in">
+      </arg>
+      <arg type="d" name="y2" direction="in">
+      </arg>
+      <arg type="d" name="x3" direction="in">
+      </arg>
+      <arg type="d" name="y3" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_posterize">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="levels" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_rect_select">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="d" name="left" direction="in">
+      </arg>
+      <arg type="d" name="top" direction="in">
+      </arg>
+      <arg type="d" name="width" direction="in">
+      </arg>
+      <arg type="d" name="height" direction="in">
+      </arg>
+      <arg type="i" name="operation" direction="in">
+      </arg>
+      <arg type="i" name="feather" direction="in">
+      </arg>
+      <arg type="d" name="radius" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_selection_all">
+      <arg type="i" name="image" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_selection_invert">
+      <arg type="i" name="image" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_selection_none">
+      <arg type="i" name="image" direction="in">
+      </arg>
+    </method>
+>
+    <method name="gimp_smudge">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="pressure" direction="in">
+      </arg>
+      <arg type="ad" name="strokes" direction="in">
+      </arg>
+    </method>
+
+   <method name="gimp_text_fontname">
+      <arg type="i" name="image" direction="in">
+      </arg>
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="d" name="x" direction="in">
+      </arg>
+      <arg type="d" name="y" direction="in">
+      </arg>
+      <arg type="s" name="text" direction="in">
+      </arg>
+      <arg type="i" name="border" direction="in">
+      </arg>
+      <arg type="i" name="antialias" direction="in">
+      </arg>
+      <arg type="d" name="size" direction="in">
+      </arg>
+      <arg type="i" name="size_type" direction="in">
+      </arg>
+      <arg type="s" name="fontname" direction="in">
+      </arg>
+    </method>
+
+    <method name="list_pdb">
+      <arg type="as" name="functions" direction="out">
+      </arg>
+    </method>
+
+    <method name="pdb_gimp_drawable_get_pixel">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="xcord" direction="in">
+      </arg>
+      <arg type="i" name="ycord" direction="in">
+      </arg>
+      <arg type="ay" name="pixval" direction="out">
+      </arg>
+    </method>
+
+    <method name="gimp_drawable_set_pixel">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="i" name="xcord" direction="in">
+      </arg>
+      <arg type="i" name="ycord" direction="in">
+      </arg>
+      <arg type="i" name="num_channels" direction="in">
+      </arg>
+      <arg type="ay" name="pixel" direction="in">
+      </arg>
+    </method>
+
+    <method name="gimp_image_transform_get">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="ay" name="pixels" direction="out">
+      </arg>
+    </method>
+
+   <method name="gimp_image_transform_set">
+      <arg type="i" name="drawable" direction="in">
+      </arg>
+      <arg type="ay" name="pixels" direction="in">
+      </arg>
+    </method>
+
+
+  </interface>
+
+  <interface name="edu.grinnell.glimmer.samr">
+    <method name="gimp_context_get_fg">
+      <arg type="(dddd)" name="color" direction="out">
+      </arg>
+    </method>
+
+  </interface>
+
+</node>

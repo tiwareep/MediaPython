@@ -1,0 +1,88 @@
+$ uname -a
+Linux Glimmer-Gyarados 2.6.32-32-generic #62-Ubuntu SMP Wed Apr 20 21:54:21 UTC 2011 i686 GNU/Linux
+$ pkg-config --modversion glib-2.0 gio-unix-2.0
+2.26.1
+2.26.1
+$ cc -g -Wall -lmcheck `pkg-config --cflags --libs glib-2.0 gio-unix-2.0` -o ex2 ex2.c
+$ ./ex2
+*** glibc detected *** ./ex2: munmap_chunk(): invalid pointer: 0x0984dfe8 ***
+======= Backtrace: =========
+/lib/tls/i686/cmov/libc.so.6(+0x6b591)[0x27f591]
+/lib/tls/i686/cmov/libc.so.6(+0x6c80e)[0x28080e]
+/usr/local/lib/libglib-2.0.so.0(g_free+0x36)[0x1599f6]
+/usr/local/lib/libgobject-2.0.so.0(g_type_create_instance+0x358)[0xcc2e98]
+/usr/local/lib/libgobject-2.0.so.0(+0x146e5)[0xca56e5]
+/usr/local/lib/libgobject-2.0.so.0(g_object_newv+0x867)[0xca3fc7]
+/usr/local/lib/libgobject-2.0.so.0(g_object_new+0x98)[0xca4718]
+/usr/local/lib/libgio-2.0.so.0(g_memory_input_stream_new+0x27)[0x91aff7]
+/usr/local/lib/libgio-2.0.so.0(g_memory_input_stream_new_from_data+0x1c)[0x91b01c]
+/usr/local/lib/libgio-2.0.so.0(g_dbus_message_new_from_blob+0x9d)[0x97be6d]
+/usr/local/lib/libgio-2.0.so.0(+0xc2202)[0x985202]
+/usr/local/lib/libgio-2.0.so.0(g_simple_async_result_complete+0xc0)[0x926310]
+/usr/local/lib/libgio-2.0.so.0(+0x6338e)[0x92638e]
+/usr/local/lib/libglib-2.0.so.0(+0x3e2f1)[0x14e2f1]
+/usr/local/lib/libglib-2.0.so.0(g_main_context_dispatch+0x1d5)[0x1505e5]
+/usr/local/lib/libglib-2.0.so.0(+0x44bb8)[0x154bb8]
+/usr/local/lib/libglib-2.0.so.0(g_main_loop_run+0x187)[0x1550f7]
+/usr/local/lib/libgio-2.0.so.0(+0xc06c4)[0x9836c4]
+/usr/local/lib/libglib-2.0.so.0(+0x6c21f)[0x17c21f]
+/lib/tls/i686/cmov/libpthread.so.0(+0x596e)[0x48f96e]
+/lib/tls/i686/cmov/libc.so.6(clone+0x5e)[0x2e1a4e]
+======= Memory map: ========
+00110000-00211000 r-xp 00000000 08:03 2589625    /usr/local/lib/libglib-2.0.so.0.2800.8
+00211000-00212000 ---p 00101000 08:03 2589625    /usr/local/lib/libglib-2.0.so.0.2800.8
+00212000-00213000 r--p 00101000 08:03 2589625    /usr/local/lib/libglib-2.0.so.0.2800.8
+00213000-00214000 rw-p 00102000 08:03 2589625    /usr/local/lib/libglib-2.0.so.0.2800.8
+00214000-00367000 r-xp 00000000 08:03 2705483    /lib/tls/i686/cmov/libc-2.11.1.so
+00367000-00368000 ---p 00153000 08:03 2705483    /lib/tls/i686/cmov/libc-2.11.1.so
+00368000-0036a000 r--p 00153000 08:03 2705483    /lib/tls/i686/cmov/libc-2.11.1.so
+0036a000-0036b000 rw-p 00155000 08:03 2705483    /lib/tls/i686/cmov/libc-2.11.1.so
+0036b000-0036e000 rw-p 00000000 00:00 0 
+0036e000-00370000 r-xp 00000000 08:03 2705486    /lib/tls/i686/cmov/libdl-2.11.1.so
+00370000-00371000 r--p 00001000 08:03 2705486    /lib/tls/i686/cmov/libdl-2.11.1.so
+00371000-00372000 rw-p 00002000 08:03 2705486    /lib/tls/i686/cmov/libdl-2.11.1.so
+00372000-00382000 r-xp 00000000 08:03 2705498    /lib/tls/i686/cmov/libresolv-2.11.1.so
+00382000-00383000 r--p 00010000 08:03 2705498    /lib/tls/i686/cmov/libresolv-2.11.1.so
+00383000-00384000 rw-p 00011000 08:03 2705498    /lib/tls/i686/cmov/libresolv-2.11.1.so
+00384000-00386000 rw-p 00000000 00:00 0 
+00386000-00399000 r-xp 00000000 08:03 2687117    /lib/libz.so.1.2.3.3
+00399000-0039a000 r--p 00012000 08:03 2687117    /lib/libz.so.1.2.3.3
+0039a000-0039b000 rw-p 00013000 08:03 2687117    /lib/libz.so.1.2.3.3
+00408000-00425000 r-xp 00000000 08:03 2687027    /lib/libgcc_s.so.1
+00425000-00426000 r--p 0001c000 08:03 2687027    /lib/libgcc_s.so.1
+00426000-00427000 rw-p 0001d000 08:03 2687027    /lib/libgcc_s.so.1
+0048a000-0049f000 r-xp 00000000 08:03 2705497    /lib/tls/i686/cmov/libpthread-2.11.1.so
+0049f000-004a0000 r--p 00014000 08:03 2705497    /lib/tls/i686/cmov/libpthread-2.11.1.so
+004a0000-004a1000 rw-p 00015000 08:03 2705497    /lib/tls/i686/cmov/libpthread-2.11.1.so
+004a1000-004a3000 rw-p 00000000 00:00 0 
+007fa000-00801000 r-xp 00000000 08:03 2705499    /lib/tls/i686/cmov/librt-2.11.1.so
+00801000-00802000 r--p 00006000 08:03 2705499    /lib/tls/i686/cmov/librt-2.11.1.so
+00802000-00803000 rw-p 00007000 08:03 2705499    /lib/tls/i686/cmov/librt-2.11.1.so
+008c3000-009c9000 r-xp 00000000 08:03 2592752    /usr/local/lib/libgio-2.0.so.0.2800.8
+009c9000-009cb000 r--p 00106000 08:03 2592752    /usr/local/lib/libgio-2.0.so.0.2800.8
+009cb000-009cc000 rw-p 00108000 08:03 2592752    /usr/local/lib/libgio-2.0.so.0.2800.8
+009cc000-009cd000 rw-p 00000000 00:00 0 
+00a95000-00ab0000 r-xp 00000000 08:03 2687018    /lib/ld-2.11.1.so
+00ab0000-00ab1000 r--p 0001a000 08:03 2687018    /lib/ld-2.11.1.so
+00ab1000-00ab2000 rw-p 0001b000 08:03 2687018    /lib/ld-2.11.1.so
+00b0c000-00b10000 r-xp 00000000 08:03 2592741    /usr/local/lib/libgthread-2.0.so.0.2800.8
+00b10000-00b11000 r--p 00003000 08:03 2592741    /usr/local/lib/libgthread-2.0.so.0.2800.8
+00b11000-00b12000 rw-p 00004000 08:03 2592741    /usr/local/lib/libgthread-2.0.so.0.2800.8
+00c91000-00cd3000 r-xp 00000000 08:03 2592745    /usr/local/lib/libgobject-2.0.so.0.2800.8
+00cd3000-00cd4000 r--p 00041000 08:03 2592745    /usr/local/lib/libgobject-2.0.so.0.2800.8
+00cd4000-00cd5000 rw-p 00042000 08:03 2592745    /usr/local/lib/libgobject-2.0.so.0.2800.8
+00d69000-00d6a000 r-xp 00000000 00:00 0          [vdso]
+00ea7000-00eaa000 r-xp 00000000 08:03 2592737    /usr/local/lib/libgmodule-2.0.so.0.2800.8
+00eaa000-00eab000 r--p 00002000 08:03 2592737    /usr/local/lib/libgmodule-2.0.so.0.2800.8
+00eab000-00eac000 rw-p 00003000 08:03 2592737    /usr/local/lib/libgmodule-2.0.so.0.2800.8
+08048000-0804b000 r-xp 00000000 08:03 327750     /home/rebelsky/Experiments/DBUS/Examples/Manual/ex2
+0804b000-0804c000 r--p 00002000 08:03 327750     /home/rebelsky/Experiments/DBUS/Examples/Manual/ex2
+0804c000-0804d000 rw-p 00003000 08:03 327750     /home/rebelsky/Experiments/DBUS/Examples/Manual/ex2
+0982a000-0986c000 rw-p 00000000 00:00 0          [heap]
+b677d000-b677e000 ---p 00000000 00:00 0 
+b677e000-b6f7e000 rw-p 00000000 00:00 0 
+b6f7e000-b6f7f000 ---p 00000000 00:00 0 
+b6f7f000-b7783000 rw-p 00000000 00:00 0 
+b7798000-b779a000 rw-p 00000000 00:00 0 
+bfcc1000-bfcd6000 rw-p 00000000 00:00 0          [stack]
+Aborted

@@ -1,0 +1,34 @@
+GENERAL STRUCTURE:
+ DBUS folder contains all the files necessary to connect Gimp and DBUS.
+    PDB procedure wrappings are in glim-gimpbus.c. glim-gimpbus.xml is used
+    elsewhere to generate python wrappings, so that needs to be up to date and
+    in agreement with the .c and .h files of the same name.
+
+ MediaPython folder contains all the files that wrap the procedures announced
+    and wrapped in the DBUS folder. This is done automatically in
+    get_dbus_methods_python.py, which calls generate_from_xml.py to parse the
+    XML to extract the procedure names. Procedure names are saved in
+    func_list_from_xml.py. Then, get_dbus_methods_python.py announced the
+    DBUS procedures to python so they can then be called and wrapped.
+    They are wrapped in wrappers_*, where wrappers_intro.py contains all the
+    preliminary stuff (error declarations, importations, etc). wrappers_all.py
+    is generated in the Makefile by concatenating wrappers_intro and all the
+    other wrappers_* files.
+    mediapylib.py is what users should import in their python console. It
+    imports all the wrappers so that the user can call any wrapped procedure.
+    "make all" should generate all the things that need to be generated.
+
+INSTALL:
+ DBUS:
+    make gimpbus
+    sudo make install
+ MediaPython:
+    make all
+
+RUN:
+ GIMP:
+    Open DBUS connection: in Filters menu, under MediaScheme, click “gimpbus”.
+    This opens DBUS->GIMP connection. The connection is closed when GIMP is closed.
+ Wing/other Python console:
+    in Python console, type “from mediapylib import *” to import our library of MediaPython
+           GIMP procedures.

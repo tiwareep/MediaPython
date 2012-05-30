@@ -1,0 +1,11 @@
+Since I'm having trouble with the sample GDBus code, I thought it would
+be valuable to do a manual compile.  This directory serves that purpose.
+
+The command is
+
+cc -g -Wall -lmcheck `pkg-config --cflags --libs glib-2.0 gio-unix-2.0` -o gdbus-example-server gdbus-example-server.c
+
+Finding out library info
+
+pkg-config --modversion glib-2.0 gio-unix-2.0
+

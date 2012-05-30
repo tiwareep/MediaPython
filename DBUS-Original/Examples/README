@@ -1,0 +1,6 @@
+The model for using D-Bus in Glib has changed from dbus-glib to this new
+GDBus creature.  Files in this directory include the examples taken from
+
+ http://developer.gnome.org/gio/2.26/GDBusConnection.html
+
+as well as one "Sam Experiment" file.

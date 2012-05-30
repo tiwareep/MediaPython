@@ -1,0 +1,51 @@
+EXPERIMENTS
+
+* E1: A simple counter [done]
+* E2: A simple counter, moving common stuff to a library [done]
+* E3: Alternate way of requesting names [done; decided against]
+* E4: Multiple counters (aka counter factory)
+* E5: Add some error stuff
+* E6: Try a GIMP plug-in
+
+PRELIMINARIES/DOCUMENTATION
+
+It looks like the obvious D-Bus stuff is done through glib.  We need to
+create an GObject of our own and write XML to attach to it.  Documentation at
+
+  http://dbus.freedesktop.org/doc/dbus-tutorial.html
+
+Good documentation (which I had not found previously) is at
+
+  http://wiki.maemo.org/Documentation/Maemo_5_Developer_Guide/DBus/Using_GLib_Wrappers_For_D-Bus
+
+The code seems to be at
+
+  http://vcs.maemo.org/svn/maemoexamples/trunk/glib-dbus-sync/
+
+NAMING SERVICES
+
+In requesting the name, might we be better off using
+dbus_bus_request_name(DBusConection *connection, const char *name, unsigned int flags, DBusError *error).  (It's simpler.)
+
+Documentation at 
+
+  http://dbus.freedesktop.org/doc/api/html/group__DBusBus.htm
+
+Note that we can pay better attention to the flags and the results, too.
+
+I succeeded in this strategy (revision 3932).  However, I worry that there
+seems to be a mismatch between the described types of dbus_bus_request_name
+and the actual types.  It also looks like the official DBus documentation
+suggests sending this as a message
+
+  http://dbus.freedesktop.org/doc/dbus-specification.html
+
+So, I'm going to keep the better error checking but use the proxy.
+
+--- 
+
+Error stuff
+
+http://dbus.freedesktop.org/doc/dbus-glib/dbus-glib-DBusGError.html
+
+http://developer.gnome.org/glib/2.29/glib-Error-Reporting.html

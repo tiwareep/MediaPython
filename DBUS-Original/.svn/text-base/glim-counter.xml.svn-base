@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<node name="/edu/grinnell/glimmer/counter"
+  xmlns:doc="http://www.freedesktop.org/dbus/1.0/doc.dtd"
+>
+
+  <interface name="edu.grinnell.glimmer.counter">
+
+    <method name="increment">
+    </method>
+
+    <method name="get">
+      <arg type="i" name="value" direction="out">
+      </arg>
+    </method>
+
+  </interface>
+</node>
